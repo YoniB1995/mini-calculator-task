@@ -1,0 +1,85 @@
+.calculator {
+  background-color: #00013d;
+  border-radius: 15px;
+  width: 80%;
+  height: 80%;
+  box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.171);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.history-tool {
+  position: absolute;
+  top: 12%;
+}
+
+@media (min-width: 500px) {
+  .calculator {
+    font-size: 1.2em;
+    width: 65%;
+    height: 65%;
+  }
+}
+
+@media (min-width: 700px) and (min-height: 720px) {
+  .calculator {
+    font-size: 1em;
+    width: 65%;
+    height: 80%;
+  }
+}
+
+@media (min-width: 801px) {
+  .calculator {
+    font-size: 1.5em;
+    width: 65%;
+    height: 80%;
+  }
+}
+
+@media (min-width: 540px) and (min-height: 720px) {
+  .calculator {
+    width: 50%;
+    height: 80%;
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1281px) {
+  .calculator {
+    width: 20%;
+    height: 80%;
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calculator {
+    width: 20%;
+    height: 80%;
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1023px) and (min-height: 1355px) {
+  .calculator {
+    width: 40%;
+    height: 70%;
+    font-size: 1.3em;
+  }
+}
+
+@media (min-width: 1500px) {
+  .calculator {
+    width: 30%;
+    font-size: 1.2em;
+  }
+}
+
+@media (min-width: 600px) and (min-height: 1024px) {
+  .calculator {
+    height: 60%;
+    font-size: 1.2em;
+  }
+}
