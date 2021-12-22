@@ -1,6 +1,8 @@
 .btns {
   display: flex;
   flex-wrap: wrap;
+  background-color: honeydew;
+  border-radius: 15px;
 }
 
 .btns button {
@@ -8,13 +10,12 @@
   font-size: 0.9em;
   width: 25%;
   margin: 3% 0%;
-  color: white;
-  background-color: #141414;
+  color: black;
+  background-color: none;
   border: none;
   cursor: pointer;
   outline: none;
   border-radius: 1rem;
-  border: 0.5 solid black;
 }
 
 .btns button:hover {

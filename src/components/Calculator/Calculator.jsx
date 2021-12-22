@@ -106,7 +106,6 @@ function Calculator() {
     addToHistory(
       `${calculate.primaryNum}${calculate.operator}${calculate.secondNum} = ${calculate.finalNum}`
     );
-    console.log(state);
   };
 
   const clearNumbers = (num, isCalculate) => {
@@ -165,11 +164,11 @@ function Calculator() {
 
   return (
     <>
-      <sidebar className="history-tool">
+      <section className="history-tool">
         <SimpleAccordion />
-      </sidebar>
+      </section>
 
-      <section className="calculator">
+      <main className="calculator">
         <Display
           result={result}
           number1={calculate.primaryNum}
@@ -177,7 +176,7 @@ function Calculator() {
           operator={operatorClick}
         />
         <Buttons handleCalculation={handleCalculation} />
-      </section>
+      </main>
     </>
   );
 }

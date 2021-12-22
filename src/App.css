@@ -11,6 +11,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.header-app {
+  color: white;
+}
+
 .container {
   background-color: #db8b09;
   height: 100vh;

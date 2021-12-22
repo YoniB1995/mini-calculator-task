@@ -14,10 +14,11 @@ p {
 
 .numbers {
   font-size: 0.9em;
-  color: rgba(197, 195, 195, 0.705);
+  color: black;
 }
 
 .result {
   overflow: auto;
   font-size: 1.5em;
+  color: black;
 }

@@ -1,5 +1,5 @@
 .calculator {
-  background-color: #00013d;
+  background-color: honeydew;
   border-radius: 15px;
   width: 80%;
   height: 80%;
@@ -11,7 +11,8 @@
 
 .history-tool {
   position: absolute;
-  top: 12%;
+  top: 18%;
+  border-radius: 15px;
 }
 
 @media (min-width: 500px) {
