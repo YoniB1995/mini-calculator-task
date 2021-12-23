@@ -47,7 +47,7 @@ function Calculator() {
         calculate.primaryNum += num;
         setNumbersDisplay(numbersDisplay + num);
         calculate.finalNum = "";
-      } else if (num === "backspace" || num === "Backspace") {
+      } else if (num === "backspace") {
         setCalculate({
           primaryNum: calculate.primaryNum.slice(0, -1),
           operator: "",

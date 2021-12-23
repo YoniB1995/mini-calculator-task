@@ -8,7 +8,7 @@ function Buttons(props) {
     <div className="btns">
       <button
         value={"backspace"}
-        onClick={(e) => props.handleCalculation(e.target.value)}
+        onClick={(e) => props.handleCalculation("backspace")}
       >
         <IoBackspaceOutline />
       </button>
