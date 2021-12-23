@@ -7,7 +7,7 @@ import Display from "../Display/Display";
 import Buttons from "../Buttons/Buttons";
 
 function Calculator() {
-  const { addToHistory, state } = useContext(HistoryContext);
+  const { addToHistory } = useContext(HistoryContext);
   const [numbersDisplay, setNumbersDisplay] = useState("");
   const [numberDisplay2, setNumberDisplay2] = useState("");
   const [operatorClick, setOperatorClick] = useState("");
@@ -17,6 +17,18 @@ function Calculator() {
   const [operator2, setOperator2] = useState(true);
   const [primaryClick, setPrimaryClick] = useState(false);
   const [primaryCalculate, setPrimaryCalculate] = useState(false);
+
+  const keyEnabledArray = Array(222).fill(true);
+  document.onkeydown = function (e) {
+    if (keyEnabledArray[e.key]) {
+      keyEnabledArray[e.key] = false;
+    }
+  };
+
+  document.onkeyup = function (e) {
+    keyEnabledArray[e.key] = true;
+    handleCalculation(e.key);
+  };
 
   const [calculate, setCalculate] = useState({
     primaryNum: "",
@@ -35,7 +47,7 @@ function Calculator() {
         calculate.primaryNum += num;
         setNumbersDisplay(numbersDisplay + num);
         calculate.finalNum = "";
-      } else if (num === "backspace") {
+      } else if (num === "backspace" || num === "Backspace") {
         setCalculate({
           primaryNum: calculate.primaryNum.slice(0, -1),
           operator: "",
@@ -153,7 +165,7 @@ function Calculator() {
       getOperator(num);
     } else if (num === "C") {
       clearNumbers();
-    } else if (num === "=") {
+    } else if (num === "=" || num === "Enter") {
       if (calculate.secondNum !== "") {
         handleOperators(num);
       } else {

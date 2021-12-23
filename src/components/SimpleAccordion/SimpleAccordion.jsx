@@ -27,8 +27,8 @@ export default function SimpleAccordion() {
               <ul style={{ listStyleType: "none" }}>
                 {state
                   .filter((history) => typeof history !== "number")
-                  .map((history) => (
-                    <li>{history}</li>
+                  .map((history, i) => (
+                    <li key={`${history}${i}`}>{history}</li>
                   ))}
               </ul>
             ) : (
