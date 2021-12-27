@@ -16,10 +16,16 @@
 }
 
 @media (min-width: 500px) {
+  .history-tool {
+    position: absolute;
+    width: 60%;
+    top: 13%;
+    border-radius: 15px;
+  }
   .calculator {
     font-size: 1.2em;
     width: 65%;
-    height: 65%;
+    height: 90%;
   }
 }
 
@@ -40,9 +46,15 @@
 }
 
 @media (min-width: 540px) and (min-height: 720px) {
+  .history-tool {
+    position: absolute;
+    width: 45%;
+    top: 13%;
+    border-radius: 15px;
+  }
   .calculator {
     width: 50%;
-    height: 80%;
+    height: 90%;
     font-size: 1em;
   }
 }
@@ -56,9 +68,15 @@
 }
 
 @media (min-width: 1024px) {
+  .history-tool {
+    position: absolute;
+    width: 45%;
+    top: 10%;
+    border-radius: 15px;
+  }
   .calculator {
-    width: 20%;
-    height: 80%;
+    width: 50%;
+    height: 90%;
     font-size: 1em;
   }
 }

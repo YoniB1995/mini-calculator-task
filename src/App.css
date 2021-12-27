@@ -9,6 +9,7 @@
 body {
   font-size: 1.3em;
   font-family: "Roboto", sans-serif;
+  background-color: whitesmoke;
 }
 
 .header-app {
@@ -16,7 +17,6 @@ body {
 }
 
 .container {
-  background-color: whitesmoke;
   height: 100vh;
   width: 100vw;
   color: rgb(239, 239, 239);

@@ -2,6 +2,7 @@
   height: 100%;
   padding: 0% 8%;
   display: flex;
+
   flex-direction: column;
   justify-content: flex-end;
   background-color: #f4f4f4;
@@ -12,6 +13,7 @@ p {
   font-weight: bold;
   text-align: right;
   margin-bottom: 5%;
+  width: 100%;
 }
 
 .numbers {

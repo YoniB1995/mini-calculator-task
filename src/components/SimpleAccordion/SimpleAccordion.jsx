@@ -22,7 +22,7 @@ export default function SimpleAccordion() {
           <Typography>Check Calculator History</Typography>
         </AccordionSummary>
         <AccordionDetails style={{ maxHeight: "8rem", overflow: "auto" }}>
-          <Typography style={{ textAlign: "center" }}>
+          <Typography style={{ textAlign: "center" }} variant="div">
             {state.length > 0 ? (
               <ul style={{ listStyleType: "none" }}>
                 {state

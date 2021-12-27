@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { HistoryContext } from "../../context/HistoryContext";
 import "./Calculator.css";
 
@@ -31,7 +31,7 @@ function Calculator() {
   };
 
   const [calculate, setCalculate] = useState({
-    primaryNum: "",
+    primaryNum: 0,
     operator: "",
     secondNum: "",
     finalNum: "",
@@ -135,7 +135,7 @@ function Calculator() {
       setOperatorClick("");
     } else {
       setCalculate({
-        primaryNum: "",
+        primaryNum: 0,
         operator: calculate.operator,
         secondNum: "",
       });
@@ -153,6 +153,25 @@ function Calculator() {
   };
 
   const handleCalculation = (num) => {
+    if (calculate.primaryNum === "") {
+      setCalculate({
+        primaryNum: num,
+        operator: "",
+        secondNum: "",
+        finalNum: "",
+      });
+    }
+    // if (
+    //   (num === "+" ||
+    //     num === "-" ||
+    //     num === "/" ||
+    //     num === "*" ||
+    //     num === "%") &&
+    //   calculate.primaryNum === ""
+    // ) {
+    //   alert("Type Your First Number !");
+    //   window.location.reload(false);
+    // }
     if (!isNaN(num) || num === "." || num === "backspace") {
       getValues(num);
     } else if (
@@ -166,11 +185,10 @@ function Calculator() {
     } else if (num === "C") {
       clearNumbers();
     } else if (num === "=" || num === "Enter") {
-      if (calculate.secondNum !== "") {
-        handleOperators(num);
-      } else {
-        handleError();
-      }
+      handleOperators(num);
+      // } else {
+      //   handleError();
+      // }
     }
   };
 
