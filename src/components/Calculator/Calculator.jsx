@@ -77,6 +77,8 @@ function Calculator() {
   };
 
   const getOperator = (num) => {
+    let operatorTrigger;
+
     calculate["operator"] = num;
     setOperatorClick(num);
     setOperator(true);
@@ -103,10 +105,9 @@ function Calculator() {
       "%": (num1, num2) => parseFloat(num1) % parseFloat(num2),
       "*": (num1, num2) => parseFloat(num1) * parseFloat(num2),
     };
-
     let result = operators[calculate["operator"]](
       calculate.primaryNum,
-      calculate.secondNum
+      num === 0 ? (calculate.secondNum = 0) : calculate.secondNum
     );
 
     calculate.finalNum = result;
@@ -153,7 +154,7 @@ function Calculator() {
   };
 
   const handleCalculation = (num) => {
-    if (calculate.primaryNum === "") {
+    if (calculate.primaryNum === 0) {
       setCalculate({
         primaryNum: num,
         operator: "",
@@ -161,17 +162,6 @@ function Calculator() {
         finalNum: "",
       });
     }
-    // if (
-    //   (num === "+" ||
-    //     num === "-" ||
-    //     num === "/" ||
-    //     num === "*" ||
-    //     num === "%") &&
-    //   calculate.primaryNum === ""
-    // ) {
-    //   alert("Type Your First Number !");
-    //   window.location.reload(false);
-    // }
     if (!isNaN(num) || num === "." || num === "backspace") {
       getValues(num);
     } else if (
@@ -185,10 +175,12 @@ function Calculator() {
     } else if (num === "C") {
       clearNumbers();
     } else if (num === "=" || num === "Enter") {
-      handleOperators(num);
-      // } else {
-      //   handleError();
-      // }
+      if (calculate.secondNum === "") {
+        getOperator("+");
+        handleOperators(0);
+      } else {
+        handleOperators(num);
+      }
     }
   };
 

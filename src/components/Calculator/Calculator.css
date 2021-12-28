@@ -15,32 +15,52 @@
   border-radius: 15px;
 }
 
-@media (min-width: 500px) {
+@media (max-width: 650px) {
   .history-tool {
     position: absolute;
-    width: 60%;
-    top: 13%;
+    width: 65%;
+    top: 18%;
     border-radius: 15px;
   }
   .calculator {
-    font-size: 1.2em;
-    width: 65%;
+    font-size: 1em;
+    width: 70%;
+    height: 80%;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 800px) {
+  .history-tool {
+    position: absolute;
+    width: 50%;
+    top: 11%;
+    border-radius: 15px;
+  }
+  .calculator {
+    font-size: 0.8em;
+    width: 50%;
     height: 90%;
   }
 }
 
 @media (min-width: 700px) and (min-height: 720px) {
   .calculator {
-    font-size: 1em;
-    width: 65%;
+    font-size: 0.8em;
+    width: 30%;
     height: 80%;
   }
 }
 
 @media (min-width: 801px) {
+  .history-tool {
+    position: absolute;
+    width: 25%;
+    top: 17%;
+    border-radius: 15px;
+  }
   .calculator {
-    font-size: 1.5em;
-    width: 65%;
+    font-size: 0.8em;
+    width: 30%;
     height: 80%;
   }
 }
@@ -70,14 +90,14 @@
 @media (min-width: 1024px) {
   .history-tool {
     position: absolute;
-    width: 45%;
+    width: 25%;
     top: 10%;
     border-radius: 15px;
   }
   .calculator {
-    width: 50%;
+    width: 30%;
     height: 90%;
-    font-size: 1em;
+    font-size: 0.8em;
   }
 }
 
@@ -92,13 +112,6 @@
 @media (min-width: 1500px) {
   .calculator {
     width: 30%;
-    font-size: 1.2em;
-  }
-}
-
-@media (min-width: 600px) and (min-height: 1024px) {
-  .calculator {
-    height: 60%;
     font-size: 1.2em;
   }
 }
