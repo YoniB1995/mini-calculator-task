@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mini-calculator-task/static/css/main.d6979beb.css",
-    "main.js": "/mini-calculator-task/static/js/main.690b09bf.js",
+    "main.css": "/mini-calculator-task/static/css/main.d48ad07c.css",
+    "main.js": "/mini-calculator-task/static/js/main.2c9ccd2d.js",
     "static/js/787.2c067ae0.chunk.js": "/mini-calculator-task/static/js/787.2c067ae0.chunk.js",
     "index.html": "/mini-calculator-task/index.html",
-    "main.d6979beb.css.map": "/mini-calculator-task/static/css/main.d6979beb.css.map",
-    "main.690b09bf.js.map": "/mini-calculator-task/static/js/main.690b09bf.js.map",
+    "main.d48ad07c.css.map": "/mini-calculator-task/static/css/main.d48ad07c.css.map",
+    "main.2c9ccd2d.js.map": "/mini-calculator-task/static/js/main.2c9ccd2d.js.map",
     "787.2c067ae0.chunk.js.map": "/mini-calculator-task/static/js/787.2c067ae0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6979beb.css",
-    "static/js/main.690b09bf.js"
+    "static/css/main.d48ad07c.css",
+    "static/js/main.2c9ccd2d.js"
   ]
 }
