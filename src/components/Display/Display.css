@@ -19,6 +19,7 @@ p {
 .numbers {
   font-size: 0.9em;
   color: black;
+  overflow: auto;
 }
 
 .result {

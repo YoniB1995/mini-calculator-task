@@ -6,6 +6,8 @@ import SimpleAccordion from "../SimpleAccordion/SimpleAccordion";
 import Display from "../Display/Display";
 import Buttons from "../Buttons/Buttons";
 
+const MAX_NUM = 999999999;
+
 function Calculator() {
   const { addToHistory } = useContext(HistoryContext);
   const [numbersDisplay, setNumbersDisplay] = useState("");
@@ -77,8 +79,6 @@ function Calculator() {
   };
 
   const getOperator = (num) => {
-    let operatorTrigger;
-
     calculate["operator"] = num;
     setOperatorClick(num);
     setOperator(true);
@@ -110,7 +110,9 @@ function Calculator() {
       num === 0 ? (calculate.secondNum = 0) : calculate.secondNum
     );
 
-    calculate.finalNum = result;
+    calculate.finalNum > MAX_NUM
+      ? (calculate.finalNum = MAX_NUM)
+      : (calculate.finalNum = result);
     setResult(result);
     setOperator2(true);
     setOperator(false);
