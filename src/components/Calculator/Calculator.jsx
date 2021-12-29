@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { HistoryContext } from "../../context/HistoryContext";
 import "./Calculator.css";
 
@@ -47,7 +47,7 @@ function Calculator() {
         calculate.primaryNum += num;
         setNumbersDisplay(numbersDisplay + num);
         calculate.finalNum = "";
-      } else if (num === "backspace") {
+      } else if (num === "backspace" || num === "Backspace") {
         if (calculate.primaryNum === 0) {
           setCalculate({
             primaryNum: 0,
@@ -124,7 +124,7 @@ function Calculator() {
     setPrimaryCalculate(true);
 
     addToHistory(
-      `${calculate.primaryNum}${calculate.operator}${calculate.secondNum} = ${calculate.finalNum}`
+      `${calculate.primaryNum} ${calculate.operator} ${calculate.secondNum} = ${calculate.finalNum}`
     );
   };
 
@@ -144,7 +144,7 @@ function Calculator() {
     } else {
       setCalculate({
         primaryNum: 0,
-        operator: calculate.operator,
+        operator: "",
         secondNum: "",
       });
 
@@ -172,7 +172,12 @@ function Calculator() {
         finalNum: "",
       });
     }
-    if (!isNaN(num) || num === "." || num === "backspace") {
+    if (
+      !isNaN(num) ||
+      num === "." ||
+      num === "backspace" ||
+      num === "Backspace"
+    ) {
       getValues(num);
     } else if (
       (num === "+" ||
@@ -185,7 +190,7 @@ function Calculator() {
     } else if (num === "C") {
       clearNumbers(0, false);
     } else if (num === "=" || num === "Enter") {
-      if (calculate.secondNum === "") {
+      if (calculate.operator === "" && calculate.secondNum === "") {
         getOperator("+");
         handleOperators(0);
       } else {
