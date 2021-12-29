@@ -6,8 +6,6 @@ import SimpleAccordion from "../SimpleAccordion/SimpleAccordion";
 import Display from "../Display/Display";
 import Buttons from "../Buttons/Buttons";
 
-const MAX_NUM = 999999999;
-
 function Calculator() {
   const { addToHistory } = useContext(HistoryContext);
   const [numbersDisplay, setNumbersDisplay] = useState("");
@@ -50,11 +48,20 @@ function Calculator() {
         setNumbersDisplay(numbersDisplay + num);
         calculate.finalNum = "";
       } else if (num === "backspace") {
-        setCalculate({
-          primaryNum: calculate.primaryNum.slice(0, -1),
-          operator: "",
-          secondNum: "",
-        });
+        if (calculate.primaryNum === 0) {
+          setCalculate({
+            primaryNum: 0,
+            operator: "",
+            secondNum: "",
+          });
+        } else {
+          setCalculate({
+            primaryNum: calculate.primaryNum.slice(0, -1),
+            operator: "",
+            secondNum: "",
+          });
+        }
+
         setNumbersDisplay(numbersDisplay);
       } else {
         calculate.primaryNum += num;
@@ -110,9 +117,7 @@ function Calculator() {
       num === 0 ? (calculate.secondNum = 0) : calculate.secondNum
     );
 
-    calculate.finalNum > MAX_NUM
-      ? (calculate.finalNum = MAX_NUM)
-      : (calculate.finalNum = result);
+    calculate.finalNum = result;
     setResult(result);
     setOperator2(true);
     setOperator(false);
@@ -151,15 +156,18 @@ function Calculator() {
     }
   };
 
-  const handleError = () => {
-    setResult("Error");
-  };
-
   const handleCalculation = (num) => {
-    if (calculate.primaryNum === 0) {
+    if (
+      (num === "+" ||
+        num === "-" ||
+        num === "/" ||
+        num === "*" ||
+        num === "%") &&
+      calculate.primaryNum === 0
+    ) {
       setCalculate({
-        primaryNum: num,
-        operator: "",
+        primaryNum: 0,
+        operator: num,
         secondNum: "",
         finalNum: "",
       });
@@ -175,7 +183,7 @@ function Calculator() {
     ) {
       getOperator(num);
     } else if (num === "C") {
-      clearNumbers();
+      clearNumbers(0, false);
     } else if (num === "=" || num === "Enter") {
       if (calculate.secondNum === "") {
         getOperator("+");
