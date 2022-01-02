@@ -187,6 +187,15 @@ function Calculator() {
         num === "%") & operator2
     ) {
       getOperator(num);
+    } else if (
+      (num === "+" ||
+        num === "-" ||
+        num === "/" ||
+        num === "*" ||
+        num === "%") & !operator2
+    ) {
+      handleOperators(calculate.operator);
+      getOperator(num);
     } else if (num === "C") {
       clearNumbers(0, false);
     } else if (num === "=" || num === "Enter") {
