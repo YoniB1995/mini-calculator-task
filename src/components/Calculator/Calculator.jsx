@@ -57,7 +57,8 @@ function Calculator() {
           });
         } else {
           setCalculate({
-            primaryNum: calculate.primaryNum.slice(0, -1),
+            primaryNum:
+              calculate.primaryNum < 10 ? 0 : calculate.primaryNum.slice(0, -1),
             operator: "",
             secondNum: "",
           });
@@ -204,6 +205,11 @@ function Calculator() {
       num === "backspace" ||
       num === "Backspace"
     ) {
+      if (calculate.primaryNum === 0 && num === ".") {
+        calculate.primaryNum += num;
+        setNumbersDisplay(numbersDisplay + num);
+        return;
+      }
       getValues(num);
       setTemp(num);
     } else if (
