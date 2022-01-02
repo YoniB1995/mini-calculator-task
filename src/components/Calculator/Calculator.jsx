@@ -82,8 +82,17 @@ function Calculator() {
           secondNum: calculate.secondNum.slice(0, -1),
         });
       } else {
-        calculate.secondNum += num;
-        setNumberDisplay2(numberDisplay2 + num);
+        if (calculate.primaryNum !== 0) {
+          calculate.secondNum += num;
+          setNumberDisplay2(numberDisplay2 + num);
+        } else {
+          setCalculate({
+            primaryNum: num,
+            operator: "",
+            secondNum: "",
+            finalNum: "",
+          });
+        }
       }
     }
   };
@@ -95,13 +104,26 @@ function Calculator() {
     setOperator2(false);
 
     if (primaryClick) {
-      setCalculate({
-        primaryNum: calculate.finalNum,
-        operator: calculate.operator,
-        secondNum: "",
-      });
-      setNumbersDisplay(calculate.finalNum);
-      setNumberDisplay2("");
+      if (!isNaN(calculate.finalNum)) {
+        setCalculate({
+          primaryNum:
+            calculate.finalNum === ""
+              ? calculate.primaryNum
+              : calculate.finalNum,
+          operator: calculate.operator,
+          secondNum: "",
+        });
+        setNumbersDisplay(calculate.finalNum);
+        setNumberDisplay2("");
+      } else {
+        setCalculate({
+          primaryNum: calculate.primaryNum,
+          operator: num,
+          secondNum: "",
+        });
+        setNumbersDisplay(calculate.finalNum);
+        setNumberDisplay2("");
+      }
     }
 
     setPrimaryClick(true);
@@ -115,6 +137,7 @@ function Calculator() {
       "%": (num1, num2) => parseFloat(num1) % parseFloat(num2),
       "*": (num1, num2) => parseFloat(num1) * parseFloat(num2),
     };
+
     let result = operators[calculate["operator"]](
       calculate.primaryNum,
       num === 0 ? (calculate.secondNum = 0) : calculate.secondNum
@@ -198,8 +221,12 @@ function Calculator() {
         num === "*" ||
         num === "%") & !operator2
     ) {
-      handleOperators(calculate.operator);
-      getOperator(num);
+      if (calculate.operator !== num) {
+        getOperator(num);
+      } else {
+        handleOperators(num);
+        getOperator(num);
+      }
     } else if (num === "C") {
       clearNumbers(0, false);
     } else if (num === "=" || num === "Enter") {
