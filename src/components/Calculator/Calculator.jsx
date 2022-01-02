@@ -12,6 +12,7 @@ function Calculator() {
   const [numberDisplay2, setNumberDisplay2] = useState("");
   const [operatorClick, setOperatorClick] = useState("");
   const [result, setResult] = useState("");
+  const [temp, setTemp] = useState("");
 
   const [operator, setOperator] = useState(false);
   const [operator2, setOperator2] = useState(true);
@@ -64,7 +65,9 @@ function Calculator() {
 
         setNumbersDisplay(numbersDisplay);
       } else {
-        calculate.primaryNum += num;
+        calculate.primaryNum === 0
+          ? (calculate.primaryNum = num)
+          : (calculate.primaryNum += num);
         setNumbersDisplay(numbersDisplay + num);
         calculate.finalNum = "";
       }
@@ -179,6 +182,7 @@ function Calculator() {
       num === "Backspace"
     ) {
       getValues(num);
+      setTemp(num);
     } else if (
       (num === "+" ||
         num === "-" ||
@@ -202,6 +206,9 @@ function Calculator() {
       if (calculate.operator === "" && calculate.secondNum === "") {
         getOperator("+");
         handleOperators(0);
+      } else if (calculate.operator && calculate.secondNum === "") {
+        getValues(temp);
+        handleOperators(temp);
       } else {
         handleOperators(num);
       }
