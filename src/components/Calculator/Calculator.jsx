@@ -45,9 +45,11 @@ function Calculator() {
         setPrimaryCalculate(false);
       }
       if (num === ".") {
-        calculate.primaryNum += num;
-        setNumbersDisplay(numbersDisplay + num);
-        calculate.finalNum = "";
+        if (!calculate["primaryNum"].toString().includes(num)) {
+          calculate.primaryNum += num;
+          setNumbersDisplay(numbersDisplay + num);
+          calculate.finalNum = "";
+        }
       } else if (num === "backspace" || num === "Backspace") {
         if (calculate.primaryNum === 0) {
           setCalculate({
@@ -74,8 +76,10 @@ function Calculator() {
       }
     } else {
       if (num === ".") {
-        calculate.secondNum += num;
-        setNumberDisplay2(numberDisplay2 + num);
+        if (!calculate["primaryNum"].toString().includes(num)) {
+          calculate.secondNum += num;
+          setNumberDisplay2(numberDisplay2 + num);
+        }
       } else if (num === "backspace") {
         setCalculate({
           primaryNum: calculate.primaryNum,
@@ -205,11 +209,6 @@ function Calculator() {
       num === "backspace" ||
       num === "Backspace"
     ) {
-      if (calculate.primaryNum === 0 && num === ".") {
-        calculate.primaryNum += num;
-        setNumbersDisplay(numbersDisplay + num);
-        return;
-      }
       getValues(num);
       setTemp(num);
     } else if (
